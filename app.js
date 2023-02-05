@@ -8,15 +8,6 @@ const cors = require('cors')
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "./client/build")));
-app.get("*", function (_, res) {
-  res.sendFile(
-    path.join(__dirname, "./client/build/index.html"),
-    function (err) {
-      res.status(500).send(err);
-    }
-  );
-});
 
 app.get("/", (req, res)=> {
   res.send("<h1>Back end server running successfully</h1>")
